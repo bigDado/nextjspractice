@@ -1,0 +1,15 @@
+.pair {
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid white;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.pair:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 1px 1px 36px 12px rgba(255,255,255,0.75);
+    font-weight: bold;
+}
