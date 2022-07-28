@@ -1,15 +1,53 @@
+@mixin pair-hover {
+    background-color: white;
+    color: black;
+    box-shadow: 1px 1px 36px 12px rgba(255,255,255,0.75);
+    font-weight: bold;
+}
+
+@mixin pair-active {
+    background-color: red;  
+    box-shadow: 1px 1px 36px 12px rgba(255,0,0,0.75);
+    color: white;
+    border-color: red;
+}
+
 .pair {
     padding: 16px;
     border-radius: 8px;
     border: 1px solid white;
     transition: all 0.2s ease-in-out;
+    background-color: transparent;
     cursor: pointer;
+    animation: chorunk 2.3s ease-in-out;
+    animation-iteration-count: unset;
+}
+
+@keyframes chorunk {
+    0% {
+        transform: scale(1);
+    }
+
+    33% {
+        transform: scale(1.7) rotateZ(82deg);
+        @include pair-hover()
+    }
+
+    66% {
+        transform: scale(1.4) rotateZ(-42deg);
+        @include pair-active()
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .pair:hover {
-    background-color: white;
-    color: black;
+    @include pair-hover();
     transform: scale(1.1);
-    box-shadow: 1px 1px 36px 12px rgba(255,255,255,0.75);
-    font-weight: bold;
+}
+
+.pair:active {
+    @include pair-active()
 }

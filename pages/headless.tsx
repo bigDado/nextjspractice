@@ -1,16 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Tab } from '@headlessui/react'
+import { useTimer } from '../hooks/timer'
 
-function classNames(...classes: any[]) {
+function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function Headless() {
+  const timer = useTimer()
+
   let [categories] = useState({
     Recent: [
       {
         id: 1,
-        title: 'Does drinking coffee make you smarter?',
+        title: 'Does drinking coffee make you smarter else?',
         date: '5h ago',
         commentCount: 5,
         shareCount: 2,
@@ -59,6 +62,7 @@ export default function Headless() {
 
   return (
     <div className="w-full max-w-md px-2 py-16 sm:px-0">
+      <div>Timer: {timer}</div>
       <Tab.Group>
         <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
           {Object.keys(categories).map((category) => (

@@ -1,4 +1,4 @@
-import SimpleCounter from "../../components/simpleCounter";
+import SimpleCounter from "../../components/simpleCounter"
 
 function Login() {
     return (
@@ -6,4 +6,4 @@ function Login() {
     )
 }
 
-export default Login;
+export default Login

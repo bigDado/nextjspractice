@@ -1,15 +1,15 @@
-import { useRouter } from "next/router";
-import FlatButton from "../../components/buttons/flatButton";
+import { GetStaticProps } from "next"
+import { useRouter } from "next/router"
+import FlatButton from "../../components/buttons/flatButton"
 
 interface PairsProps {
     data: Pair[]
 }
 
-
 function Pairs({ data }: PairsProps) {
     function PairComponent({ pair }: { pair: Pair }) {
         const router = useRouter()
-        
+
         return (
             <div style={{ justifySelf: 'center' }}>
                 <FlatButton
@@ -27,14 +27,10 @@ function Pairs({ data }: PairsProps) {
     )
 }
 
-// This function gets called at build time
-export async function getStaticProps() {
-    // Call an external API endpoint to get posts
+export const getStaticProps: GetStaticProps<{ data: Pair[] }> = async (context) => {
     const res = await fetch('https://api.btcturk.com/api/v2/ticker')
-    const data = (await res.json()).data;
+    const data = (await res.json()).data as Pair[]
 
-    // By returning { props: { posts } }, the Pairs component
-    // will receive `posts` as a prop at build time
     return {
         props: {
             data,

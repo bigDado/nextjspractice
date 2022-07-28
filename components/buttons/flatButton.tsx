@@ -12,4 +12,4 @@ function FlatButton ({
     )
 }
 
-export default FlatButton;
+export default FlatButton

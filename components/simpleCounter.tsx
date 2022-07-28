@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import FlatButton from "./buttons/flatButton";
+import { useEffect, useState } from "react"
+import FlatButton from "./buttons/flatButton"
 
 function SimpleCounter() {
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0)
 
-    const [timer, setTimer] = useState(0);
+    const [timer, setTimer] = useState(0)
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -31,4 +31,4 @@ function SimpleCounter() {
     )
 }
 
-export default SimpleCounter;
+export default SimpleCounter
