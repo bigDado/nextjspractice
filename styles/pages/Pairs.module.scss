@@ -12,6 +12,13 @@
     border-color: red;
 }
 
+@mixin pair-selected {
+    background-color: rgba(0,128,0,0.75);  
+    box-shadow: 1px 1px 36px 12px rgba(0,128,0,0.75);
+    color: white;
+    border-color: green;
+}
+
 .pair {
     padding: 16px;
     border-radius: 8px;
@@ -21,6 +28,18 @@
     cursor: pointer;
     animation: chorunk 2.3s ease-in-out;
     animation-iteration-count: unset;
+
+    &:hover {
+        @include pair-hover();
+        transform: scale(1.1);
+    }
+    &:active {
+        @include pair-active();
+    }
+    
+    &.selected {
+        @include pair-selected();
+    }
 }
 
 @keyframes chorunk {
@@ -29,12 +48,12 @@
     }
 
     33% {
-        transform: scale(1.7) rotateZ(82deg);
+        transform: scale(1.7) rotateZ(420deg);
         @include pair-hover()
     }
 
     66% {
-        transform: scale(1.4) rotateZ(-42deg);
+        transform: scale(1.4) rotateZ(-66deg);
         @include pair-active()
     }
 
@@ -43,11 +62,3 @@
     }
 }
 
-.pair:hover {
-    @include pair-hover();
-    transform: scale(1.1);
-}
-
-.pair:active {
-    @include pair-active()
-}

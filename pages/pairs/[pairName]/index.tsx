@@ -1,12 +1,15 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next"
+import { useState } from "react"
 import styles from '../../../styles/pages/Pairs.module.scss'
+import { classNames } from "../../../utils/styleUtils"
 
 const PairComponent  = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
     // const router = useRouter()
     // const { pairName } = router.query
+    const [selected, setSelected] = useState(false)
     return (
         <main style={{ height: '100%', display: 'grid', placeItems: 'center' }}>
-            <button className={styles.pair}>
+            <button className={classNames(styles.pair, selected ? styles.selected : '')} onClick={() => setSelected(!selected)}>
                 {props.pair}
             </button>
         </main>

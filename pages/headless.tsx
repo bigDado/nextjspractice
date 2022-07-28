@@ -1,10 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Tab } from '@headlessui/react'
 import { useTimer } from '../hooks/timer'
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
+import { classNames } from '../utils/styleUtils'
 
 export default function Headless() {
   const timer = useTimer()

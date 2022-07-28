@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 
 export default function HomeLayout({ children }: { children?: React.ReactNode}) {
     return (
