@@ -1,4 +1,5 @@
 import { GetStaticProps } from "next"
+import Link from "next/link"
 import { useRouter } from "next/router"
 import FlatButton from "../../components/buttons/flatButton"
 
@@ -12,10 +13,11 @@ function Pairs({ data }: PairsProps) {
 
         return (
             <div style={{ justifySelf: 'center' }}>
-                <FlatButton
-                    onClick={() => router.push(router.route + `/${pair.pair}`)}
-                    text={pair.pair}
-                />
+                <Link href={'/pairs/' + pair.pair}>
+                    <FlatButton
+                        text={pair.pair}
+                    />
+                </Link>
             </div>
         )
     }

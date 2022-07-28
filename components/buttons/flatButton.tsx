@@ -1,6 +1,6 @@
 interface FlatButtonProps {
     text: string
-    onClick: () => any
+    onClick?: () => any
 }
 
 function FlatButton ({
