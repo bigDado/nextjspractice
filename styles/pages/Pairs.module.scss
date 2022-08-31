@@ -5,8 +5,8 @@
     font-weight: bold;
 }
 
-@mixin pair-active {
-    background-color: red;  
+@mixin pair-active($color) {
+    background-color: $color;  
     box-shadow: 1px 1px 36px 12px rgba(255,0,0,0.75);
     color: white;
     border-color: red;
@@ -28,17 +28,17 @@
     cursor: pointer;
     animation: chorunk 2.3s ease-in-out;
     animation-iteration-count: unset;
+    
+    &.selected {
+        @include pair-selected();
+    }
 
     &:hover {
         @include pair-hover();
         transform: scale(1.1);
     }
     &:active {
-        @include pair-active();
-    }
-    
-    &.selected {
-        @include pair-selected();
+        @include pair-active(yellow);
     }
 }
 
@@ -54,7 +54,7 @@
 
     66% {
         transform: scale(1.4) rotateZ(-66deg);
-        @include pair-active()
+        @include pair-active(red)
     }
 
     100% {
